@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Flexilatina</b> LTDA',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>F.</b>DC',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'blue-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'inicio',
 
     'logout_url' => 'logout',
 
@@ -108,80 +108,77 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'PRINCIPAL',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Inicio',
+            'icon'        => 'dashboard',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/inicio',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Estadisticas',
+            'icon'        => 'bar-chart',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/estadisticas',
         ],
-        'ACCOUNT SETTINGS',
+        'PRODUCCIÓN',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
-        [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text' => 'Ofimática',
+            'icon'        => 'desktop',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/ofimatica/equipos',
             'submenu' => [
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Ver Registros',
+                    'icon'        => 'check',
+                    'icon_color' => 'aqua',
+                    'url'  => 'admin/ofimatica/ver',
                 ],
                 [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Importar Registros',
+                    'icon'        => 'check',
+                    'icon_color' => 'aqua',
+                    'url'  => 'admin/ofimatica/importar',
                 ],
             ],
         ],
-        'LABELS',
         [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
+            'text' => 'Calendario',
+            'icon'        => 'calendar',
             'icon_color' => 'aqua',
+            'url'  => 'admin/produccion/calendario',
+        ],
+        [
+            'text' => 'Sistema de alertas',
+            'icon'        => 'bell',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/produccion/alertas',
+        ],
+        'MANTENIMIENTO',
+        [
+            'text' => 'Gestión de Equipos',
+            'icon'        => 'desktop',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/mantenimiento/equipos',
+        ],
+        [
+            'text' => 'Mantenimiento Preventivo',
+            'icon'        => 'check',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/mantenimiento/preventivo',
+        ],
+        [
+            'text' => 'Mantenimiento Correctivo',
+            'icon'        => 'close',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/mantenimiento/correctivo',
+        ],
+        'USUARIOS',
+        [
+            'text' => 'Gestionar Usuarios',
+            'icon' => 'users',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/usuarios'
         ],
     ],
 
