@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
-class RoleTableSeeder extends Seeder
+class RolesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

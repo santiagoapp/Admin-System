@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Inicio')
 
 @section('content_header')
 <h1>
-	Ofimática
-	<small>Ordenes de trabajo e información relacionada</small>
+	Sistema de alertas
+	<small>Ordenes de trabajo para el día {{ Carbon\Carbon::now()->format('d/m/y') }}</small>
 </h1>
 @stop
 
@@ -28,33 +28,7 @@
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body table-responsive">
-				<table class="table table-hover table-bordered">
-					<tbody>
-						<tr>
-							<th width="5%">ID</th>
-							<th width="15%">Cliente</th>
-							<th width="20%">Vendedor</th>
-							<th width="35%">Observaciones</th>
-							<th width="10%">Fecha</th>
-							<th width="10%">Acciones</th>
-						</tr>
-						@foreach($result as $ot)
-						<tr>
-							<td>{{$ot->ID}}</td>
-							<td>{{$ot->CLIENTE}}</td>
-							<td>{{$ot->VENDEDOR}}</td>
-							<td>{{$ot->OBSERVACIONES}}</td>
-							<td><span class="label label-success">{{$ot->FECHA}}</span></td>
-							<td>
-								<div class="btn-group">
-									<a href="#" class="btn btn-success"><span class="fa fa-check"></span></a>
-									<a href="#" class="btn btn-danger"><span class="fa fa-close"></span></a>
-								</div>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
+				
 			</div>
 			<!-- /.box-body -->
 		</div>

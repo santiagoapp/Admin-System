@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
-class PermissionTableSeeder extends Seeder
+class PermissionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -68,14 +68,15 @@ class PermissionTableSeeder extends Seeder
     		'Estadísticas Contabilidad',
     		'Estadísticas Almacén',
     		// Otros
-    		'Ver Calendario',
-    		'Ver Alertas'
-    	];
-    	
-    	foreach ($permissions as $permission) {
-    		factory(Permission::class)->create([
-    			'name'=>$permission
-    		]);
-    	}
-    }
+            'Ver Calendario',
+            'Ver Mapa',
+            'Ver Alertas'
+        ];
+        
+        foreach ($permissions as $permission) {
+          factory(Permission::class)->create([
+             'name'=>$permission
+         ]);
+      }
+  }
 }

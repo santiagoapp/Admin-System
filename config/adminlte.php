@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Flexilatina de Colombia',
 
     'title_prefix' => '',
 
@@ -108,78 +108,97 @@ return [
     */
 
     'menu' => [
-        'PRINCIPAL',
-        [
-            'text' => 'Inicio',
-            'icon'        => 'dashboard',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/inicio',
-        ],
-        [
-            'text' => 'Estadisticas',
-            'icon'        => 'bar-chart',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/estadisticas',
-        ],
-        'PRODUCCIÓN',
-        [
-            'text' => 'Ofimática',
-            'icon'        => 'desktop',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/ofimatica/equipos',
-            'submenu' => [
-                [
-                    'text' => 'Ver Registros',
-                    'icon'        => 'check',
-                    'icon_color' => 'aqua',
-                    'url'  => 'admin/ofimatica/ver',
-                ],
-                [
-                    'text' => 'Importar Registros',
-                    'icon'        => 'check',
-                    'icon_color' => 'aqua',
-                    'url'  => 'admin/ofimatica/importar',
-                ],
-            ],
-        ],
-        [
-            'text' => 'Calendario',
-            'icon'        => 'calendar',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/produccion/calendario',
-        ],
-        [
-            'text' => 'Sistema de alertas',
-            'icon'        => 'bell',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/produccion/alertas',
-        ],
-        'MANTENIMIENTO',
-        [
-            'text' => 'Gestión de Equipos',
-            'icon'        => 'desktop',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/mantenimiento/equipos',
-        ],
-        [
-            'text' => 'Mantenimiento Preventivo',
-            'icon'        => 'check',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/mantenimiento/preventivo',
-        ],
-        [
-            'text' => 'Mantenimiento Correctivo',
-            'icon'        => 'close',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/mantenimiento/correctivo',
-        ],
-        'USUARIOS',
-        [
-            'text' => 'Gestionar Usuarios',
-            'icon' => 'users',
-            'icon_color' => 'aqua',
-            'url'  => 'admin/usuarios'
-        ],
+    	'PRINCIPAL',
+    	[
+    		'text' => 'Inicio',
+    		'icon'        => 'dashboard',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/inicio',
+    	],
+    	[
+    		'text' => 'Estadisticas',
+    		'icon'        => 'bar-chart',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/estadisticas',
+    	],
+    	[
+    		'text' => 'Mapa de la planta',
+    		'icon'        => 'map',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/mapa',
+    	],
+    	'PRODUCCIÓN',
+    	[
+    		'text' => 'Ofimática',
+    		'icon'        => 'edit',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/ofimatica/equipos',
+    		'submenu' => [
+    			[
+    				'text' => 'Ver Registros',
+    				'icon'        => 'check',
+    				'icon_color' => 'aqua',
+    				'url'  => 'admin/ofimatica/ver',
+    			],
+    			[
+    				'text' => 'Importar Registros',
+    				'icon'        => 'check',
+    				'icon_color' => 'aqua',
+    				'url'  => 'admin/ofimatica/importar',
+    			],
+    		],
+    	],
+    	[
+    		'text' => 'Calendario',
+    		'icon'        => 'calendar',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/produccion/calendario',
+    	],
+    	[
+    		'text' => 'Sistema de alertas',
+    		'icon'        => 'bell',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/produccion/alertas',
+    	],
+    	'TALENTO HUMANO',
+    	[
+    		'text' => 'Gestión de talento humano',
+    		'icon'        => 'user',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/talento/personal',
+    	],
+    	[
+    		'text' => 'Cargos',
+    		'icon'        => 'hand-pointer-o',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/talento/cargos',
+    	],
+    	'MANTENIMIENTO',
+    	[
+    		'text' => 'Gestión de Equipos',
+    		'icon'        => 'desktop',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/mantenimiento/equipos',
+    	],
+    	[
+    		'text' => 'Mantenimiento Preventivo',
+    		'icon'        => 'check',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/mantenimiento/preventivo',
+    	],
+    	[
+    		'text' => 'Mantenimiento Correctivo',
+    		'icon'        => 'close',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/mantenimiento/correctivo',
+    	],
+    	'USUARIOS',
+    	[
+    		'text' => 'Gestionar Usuarios',
+    		'icon' => 'users',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/usuarios'
+    	],
     ],
 
     /*
@@ -195,11 +214,11 @@ return [
     */
 
     'filters' => [
-        JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+    	JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
+    	JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
+    	JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
+    	JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
+    	JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
     ],
 
     /*
@@ -214,8 +233,8 @@ return [
     */
 
     'plugins' => [
-        'datatables' => true,
-        'select2'    => true,
-        'chartjs'    => true,
+    	'datatables' => true,
+    	'select2'    => true,
+    	'chartjs'    => true,
     ],
 ];

@@ -18,5 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
-	Route::get('/inicio', 'HomeController@index')->name('inicio');
+	Route::get('/admin/inicio', 'HomeController@index')->name('inicio');
+	Route::get('/admin/ofimatica/ver', 'OfimaticaController@index')->name('ofimatica');
+	Route::get('/admin/talento/personal', 'PersonaController@index')->name('personal');
+	Route::get('/admin/talento/cargo', 'CargoController@index')->name('cargos');
 });
