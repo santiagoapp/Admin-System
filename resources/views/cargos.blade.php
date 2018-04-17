@@ -29,7 +29,7 @@
 			</div>
 			<!-- /.box-header -->
 			<div id="app" class="box-body table-responsive">
-				
+				<cargo></cargo>
 			</div>
 			<!-- /.box-body -->
 		</div>
