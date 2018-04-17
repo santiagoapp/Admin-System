@@ -12,6 +12,7 @@ class CargosTableSeeder extends Seeder
     public function run()
     {
     	$cargos = [
+            'Asistente de ingeniería',
     		'Operario de corte',
     		'Operario de corte y transporte',
     		'Operario de empaques, troquelados y KIDs',

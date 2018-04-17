@@ -127,79 +127,80 @@ return [
     		'icon_color' => 'aqua',
     		'url'  => 'admin/mapa',
     	],
-    	'PRODUCCIÓN',
-    	[
-    		'text' => 'Ofimática',
-    		'icon'        => 'edit',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/ofimatica/equipos',
-    		'submenu' => [
-    			[
-    				'text' => 'Ver Registros',
-    				'icon'        => 'check',
-    				'icon_color' => 'aqua',
-    				'url'  => 'admin/ofimatica/ver',
-    			],
-    			[
-    				'text' => 'Importar Registros',
-    				'icon'        => 'check',
-    				'icon_color' => 'aqua',
-    				'url'  => 'admin/ofimatica/importar',
-    			],
-    		],
-    	],
-    	[
-    		'text' => 'Calendario',
-    		'icon'        => 'calendar',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/produccion/calendario',
-    	],
-    	[
-    		'text' => 'Sistema de alertas',
-    		'icon'        => 'bell',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/produccion/alertas',
-    	],
-    	'TALENTO HUMANO',
-    	[
-    		'text' => 'Gestión de talento humano',
-    		'icon'        => 'user',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/talento/personal',
-    	],
-    	[
-    		'text' => 'Cargos',
-    		'icon'        => 'hand-pointer-o',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/talento/cargos',
-    	],
-    	'MANTENIMIENTO',
-    	[
-    		'text' => 'Gestión de Equipos',
-    		'icon'        => 'desktop',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/mantenimiento/equipos',
-    	],
-    	[
-    		'text' => 'Mantenimiento Preventivo',
-    		'icon'        => 'check',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/mantenimiento/preventivo',
-    	],
-    	[
-    		'text' => 'Mantenimiento Correctivo',
-    		'icon'        => 'close',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/mantenimiento/correctivo',
-    	],
-    	'USUARIOS',
-    	[
-    		'text' => 'Gestionar Usuarios',
-    		'icon' => 'users',
-    		'icon_color' => 'aqua',
-    		'url'  => 'admin/usuarios'
-    	],
+        [
+            'text' => 'Sistema de alertas',
+            'icon'        => 'bell',
+            'icon_color' => 'aqua',
+            'url'  => 'admin/produccion/alertas',
+        ],
+        'PRODUCCIÓN',
+        [
+          'text' => 'Ofimática',
+          'icon'        => 'edit',
+          'icon_color' => 'aqua',
+          'url'  => 'admin/ofimatica/equipos',
+          'submenu' => [
+             [
+                'text' => 'Ver Registros',
+                'icon'        => 'check',
+                'icon_color' => 'aqua',
+                'url'  => 'admin/ofimatica/ver',
+            ],
+            [
+                'text' => 'Importar Registros',
+                'icon'        => 'check',
+                'icon_color' => 'aqua',
+                'url'  => 'admin/ofimatica/importar',
+            ],
+        ],
     ],
+    [
+      'text' => 'Calendario',
+      'icon'        => 'calendar',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/produccion/calendario',
+  ],
+  
+  'TALENTO HUMANO',
+  [
+      'text' => 'Gestión de talento humano',
+      'icon'        => 'user',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/talento/personal',
+  ],
+  [
+      'text' => 'Cargos',
+      'icon'        => 'hand-pointer-o',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/talento/cargos',
+  ],
+  'MANTENIMIENTO',
+  [
+      'text' => 'Gestión de Equipos',
+      'icon'        => 'desktop',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/mantenimiento/equipos',
+  ],
+  [
+      'text' => 'Mantenimiento Preventivo',
+      'icon'        => 'check',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/mantenimiento/preventivo',
+  ],
+  [
+      'text' => 'Mantenimiento Correctivo',
+      'icon'        => 'close',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/mantenimiento/correctivo',
+  ],
+  'USUARIOS',
+  [
+      'text' => 'Gestionar Usuarios',
+      'icon' => 'users',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/usuarios'
+  ],
+],
 
     /*
     |--------------------------------------------------------------------------
