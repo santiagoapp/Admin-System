@@ -13497,6 +13497,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -13508,16 +13512,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             roles: [],
             permisos: [],
+            checkbox: [],
             permisosPorRol: [],
             isActive: false,
             col: 'col-md-12',
-            permiso: ''
+            permiso: '',
+            permisoAnterior: '',
+            rolID: ''
         };
     },
 
     created: function created() {
         this.getRoles();
         this.getPermisos();
+        this.setCheckBoxFalse();
     },
     methods: {
         getRoles: function getRoles() {
@@ -13538,6 +13546,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         showPermisos: function showPermisos(name) {
             this.getPermissionsByRole(name);
+            this.permisoAnterior = name;
             this.permiso = name;
             this.isActive = true;
             this.col = 'col-md-8';
@@ -13571,11 +13580,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this4 = this;
 
             var url = 'roles/permisos/get';
-
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url, {
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(url, {
                 name: name
             }).then(function (response) {
                 _this4.permisosPorRol = response.data;
+                _this4.setCheckBoxFalse();
+                _this4.setPermissionsByRole();
+            }).catch(function (error) {
+                __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error("Ha ocurrido un error");
+            });
+        },
+        setPermissionsByRole: function setPermissionsByRole() {
+            var arr = [];
+            for (var j = 0; j < this.permisos.length; j++) {
+                for (var i = 0; i < this.permisosPorRol.length; i++) {
+                    if (this.permisosPorRol[i].name == this.permisos[j].name) {
+                        arr[j] = true;
+                    }
+                }
+            }
+            this.checkbox = arr;
+        },
+        setCheckBoxFalse: function setCheckBoxFalse() {
+            var arr = [];
+            for (var j = 0; j < this.permisos.length; j++) {
+                arr[j] = false;
+            }
+            this.checkbox = arr;
+        },
+        syncPermissionsToRole: function syncPermissionsToRole() {
+            var _this5 = this;
+
+            var url = 'roles/permisos/set';
+            var arr = [];
+
+            for (var i = 0; i < this.permisos.length; i++) {
+                if (this.checkbox[i] == true) {
+                    arr.push(this.permisos[i].name);
+                }
+            }
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(url, {
+                name: this.permiso,
+                permisoAnterior: this.permisoAnterior,
+                permisos: arr
+            }).then(function (response) {
+                console.log(response.data);
+                _this5.getRoles();
+                _this5.permisoAnterior = response.data.name;
+                __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.success("Permisos agregados");
             }).catch(function (error) {
                 __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error("Ha ocurrido un error");
             });
@@ -24534,6 +24586,28 @@ var render = function() {
                     _vm.permiso = $event.target.value
                   }
                 }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.permisoAnterior,
+                    expression: "permisoAnterior"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "hidden" },
+                domProps: { value: _vm.permisoAnterior },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.permisoAnterior = $event.target.value
+                  }
+                }
               })
             ]),
             _vm._v(" "),
@@ -24543,11 +24617,56 @@ var render = function() {
               [
                 _c("label", [_vm._v("Permisos")]),
                 _vm._v(" "),
-                _vm._l(_vm.permisos, function(permiso) {
+                _vm._l(_vm.permisos, function(permiso, index) {
                   return [
                     _c("div", { staticClass: "checkbox" }, [
                       _c("label", [
-                        _c("input", { attrs: { type: "checkbox" } }),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkbox[index],
+                              expression: "checkbox[index]"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.checkbox[index])
+                              ? _vm._i(_vm.checkbox[index], null) > -1
+                              : _vm.checkbox[index]
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.checkbox[index],
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.checkbox,
+                                      index,
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.checkbox,
+                                      index,
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.checkbox, index, $$c)
+                              }
+                            }
+                          }
+                        }),
                         _vm._v(
                           "\n                            " +
                             _vm._s(permiso.name) +
@@ -24559,7 +24678,26 @@ var render = function() {
                 })
               ],
               2
-            )
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.syncPermissionsToRole()
+                    }
+                  }
+                },
+                [
+                  _c("span", { staticClass: "fa fa-plus" }),
+                  _vm._v(" Actualizar")
+                ]
+              )
+            ])
           ])
         ])
       : _vm._e()

@@ -28,17 +28,21 @@
                 <div class="form-group">
                     <label>Nombre del Rol</label>
                     <input v-model="permiso" type="text" class="form-control">
+                    <input v-model="permisoAnterior" type="hidden" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Permisos</label>
-                    <template v-for="permiso in permisos">
+                    <template v-for="(permiso,index) in permisos">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox">
+                                <input type="checkbox" v-model="checkbox[index]">
                                 {{ permiso.name}}
                             </label>
                         </div>
                     </template>
+                </div>
+                <div class="form-group">
+                    <a v-on:click.prevent="syncPermissionsToRole()" class="btn btn-primary btn-block"><span class="fa fa-plus"></span> Actualizar</a>
                 </div>
             </form>
         </div>
@@ -56,15 +60,19 @@
             return{
                 roles:[],
                 permisos:[],
+                checkbox:[],
                 permisosPorRol:[],
                 isActive: false,
                 col: 'col-md-12',
                 permiso: '',
+                permisoAnterior: '',
+                rolID: '',
             }
         },
         created: function() {
             this.getRoles();
             this.getPermisos();
+            this.setCheckBoxFalse();
         },
         methods:{
             getRoles(){
@@ -81,6 +89,7 @@
             },
             showPermisos(name){
                 this.getPermissionsByRole(name);
+                this.permisoAnterior = name;
                 this.permiso = name;
                 this.isActive = true;
                 this.col = 'col-md-8';
@@ -111,10 +120,54 @@
             },
             getPermissionsByRole(name){
                 var url = 'roles/permisos/get';
-                axios.get(url,{
+                axios.post(url,{
                     name: name
                 }).then(response => {
-                    this.permisosPorRol = response.data
+                    this.permisosPorRol = response.data;
+                    this.setCheckBoxFalse();
+                    this.setPermissionsByRole();
+                }).catch(error =>{
+                    toastr.error("Ha ocurrido un error");
+                });
+            },
+            setPermissionsByRole(){
+                var arr = [];
+                for (var j = 0; j < this.permisos.length; j++) {
+                    for (var i = 0; i < this.permisosPorRol.length; i++) {
+                        if (this.permisosPorRol[i].name == this.permisos[j].name) 
+                        {
+                            arr[j] = true;
+                        }
+                    }
+                }
+                this.checkbox = arr;
+            },
+            setCheckBoxFalse(){
+                var arr = [];
+                for (var j = 0; j < this.permisos.length; j++) {
+                    arr[j] = false;
+                }
+                this.checkbox = arr;
+            },
+            syncPermissionsToRole(){
+                var url = 'roles/permisos/set';
+                var arr = [];
+
+                for (var i = 0; i < this.permisos.length; i++) {
+                    if (this.checkbox[i] == true) 
+                    {
+                        arr.push(this.permisos[i].name);
+                    }
+                }
+                axios.post(url,{
+                    name: this.permiso,
+                    permisoAnterior: this.permisoAnterior,
+                    permisos: arr,
+                }).then(response => {
+                    console.log(response.data);
+                    this.getRoles();
+                    this.permisoAnterior = response.data.name
+                    toastr.success("Permisos agregados");
                 }).catch(error =>{
                     toastr.error("Ha ocurrido un error");
                 });

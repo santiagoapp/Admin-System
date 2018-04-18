@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/admin/roles', 'RolesController@index')->name('roles');
 	Route::get('/admin/roles/get', 'RolesController@getRoles');
 	Route::post('/admin/roles/delete', 'RolesController@deleteRol');
-	Route::get('/admin/roles/permisos/get', 'RolesController@getPermissionsByRole');
+	Route::post('/admin/roles/permisos/get', 'RolesController@getPermissionsByRole');
+	Route::post('/admin/roles/permisos/set', 'RolesController@setPermissionsByRole');
 	Route::get('/admin/permisos/get', 'RolesController@getPermisos');
 });
