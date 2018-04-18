@@ -108,6 +108,7 @@ return [
     */
 
     'menu' => [
+<<<<<<< HEAD
         'PRINCIPAL',
         [
             'text' => 'Inicio',
@@ -155,12 +156,34 @@ return [
             'icon_color' => 'aqua',
             'url'  => 'admin/produccion/calendario',
         ],
+=======
+    	'PRINCIPAL',
+    	[
+    		'text' => 'Inicio',
+    		'icon'        => 'dashboard',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/inicio',
+    	],
+    	[
+    		'text' => 'Estadisticas',
+    		'icon'        => 'bar-chart',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/estadisticas',
+    	],
+    	[
+    		'text' => 'Mapa de la planta',
+    		'icon'        => 'map',
+    		'icon_color' => 'aqua',
+    		'url'  => 'admin/mapa',
+    	],
+>>>>>>> baf00013cdf75630c146df23e1f334fdaa106f65
         [
             'text' => 'Sistema de alertas',
             'icon'        => 'bell',
             'icon_color' => 'aqua',
             'url'  => 'admin/produccion/alertas',
         ],
+<<<<<<< HEAD
         'TALENTO HUMANO',
         [
             'text' => 'Gestión de talento humano',
@@ -205,8 +228,76 @@ return [
             'icon' => 'user-times',
             'icon_color' => 'aqua',
             'url'  => 'admin/roles'
+=======
+        'PRODUCCIÓN',
+        [
+          'text' => 'Ofimática',
+          'icon'        => 'edit',
+          'icon_color' => 'aqua',
+          'url'  => 'admin/ofimatica/equipos',
+          'submenu' => [
+             [
+                'text' => 'Ver Registros',
+                'icon'        => 'check',
+                'icon_color' => 'aqua',
+                'url'  => 'admin/ofimatica/ver',
+            ],
+            [
+                'text' => 'Importar Registros',
+                'icon'        => 'check',
+                'icon_color' => 'aqua',
+                'url'  => 'admin/ofimatica/importar',
+            ],
+>>>>>>> baf00013cdf75630c146df23e1f334fdaa106f65
         ],
     ],
+    [
+      'text' => 'Calendario',
+      'icon'        => 'calendar',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/produccion/calendario',
+  ],
+  
+  'TALENTO HUMANO',
+  [
+      'text' => 'Gestión de talento humano',
+      'icon'        => 'user',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/talento/personal',
+  ],
+  [
+      'text' => 'Cargos',
+      'icon'        => 'hand-pointer-o',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/talento/cargos',
+  ],
+  'MANTENIMIENTO',
+  [
+      'text' => 'Gestión de Equipos',
+      'icon'        => 'desktop',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/mantenimiento/equipos',
+  ],
+  [
+      'text' => 'Mantenimiento Preventivo',
+      'icon'        => 'check',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/mantenimiento/preventivo',
+  ],
+  [
+      'text' => 'Mantenimiento Correctivo',
+      'icon'        => 'close',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/mantenimiento/correctivo',
+  ],
+  'USUARIOS',
+  [
+      'text' => 'Gestionar Usuarios',
+      'icon' => 'users',
+      'icon_color' => 'aqua',
+      'url'  => 'admin/usuarios'
+  ],
+],
 
     /*
     |--------------------------------------------------------------------------
